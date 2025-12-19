@@ -1,9 +1,8 @@
-set(target ${MP2_TESTS})
+set(TEST_SOURCES
+    test_main.cpp
+    test_TDynamicStack.cpp
+    test_TArithmeticExpression.cpp
+)
 
-file(GLOB hdrs "*.h*")
-file(GLOB srcs "*.cpp")
-
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty")
-
-add_executable(${target} ${srcs} ${hdrs})
-target_link_libraries(${target} gtest ${MP2_LIBRARY})
+add_executable(${MP2_TESTS} ${TEST_SOURCES})
+target_link_libraries(${MP2_TESTS} ${MP2_LIBRARY} gtest gtest_main)
